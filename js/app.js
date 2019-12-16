@@ -1,17 +1,18 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * app.js */
-const game = new Game();
-const Overly = $('#overlay');
+
+ let game
+const Overly = $('#overlay')
 const btRest = $('#btn__reset')
-const keyBtn = $('button.key')
+const buttonsContainer = $('#qwerty')
+
 btRest.on('click', () => {
-    game.startGame();
-    Overly.slideUp();
-    // game.activePhrase.showMatchedLetter('a')
-    // game.checkForWin();
-    // game.removeLife();
+    game = new Game()
+    game.startGame()
+    Overly.slideUp()
 })
-keyBtn.on('click', (e)=>{
+
+buttonsContainer.on('click', 'button.key', (e)=>{
     game.handleInteraction($(e.target))
 })
