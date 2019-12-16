@@ -5,7 +5,7 @@
  let game
 const Overly = $('#overlay')
 const btRest = $('#btn__reset')
-const buttonsContainer = $('#qwerty')
+const buttonsContainer = $('button.key')
 
 btRest.on('click', () => {
     game = new Game()
@@ -13,6 +13,11 @@ btRest.on('click', () => {
     Overly.slideUp()
 })
 
-buttonsContainer.on('click', 'button.key', (e)=>{
+buttonsContainer.on('click', (e)=>{
     game.handleInteraction($(e.target))
 })
+// $('body').on('keyup', (e)=>{
+//     let bKey = $('<button>').text(e.key).addClass(`key`)
+//     // console.log(bKey.text())
+//     game.handleInteraction(bKey)
+// })
